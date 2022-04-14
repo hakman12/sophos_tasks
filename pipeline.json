@@ -1,0 +1,30 @@
+{
+  "tasks": [
+    {
+      "id": "one",
+      "type": "print",
+      "needs": [],
+      "props": {
+        "message": "Hello!"
+      }
+    },
+    {
+      "id": "two",
+      "type": "subtract",
+      "needs": [ "three" ],
+      "props": {
+        "num1": 21,
+        "num2": "{{ tasks.three.result }}"
+      }
+    },
+    {
+      "id": "three",
+      "type": "add",
+      "needs": [ "one" ],
+      "props": {
+        "num1": 3,
+        "num2": 6
+      }
+    }
+  ]
+}
